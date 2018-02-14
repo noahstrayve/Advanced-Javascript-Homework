@@ -65,7 +65,7 @@ inquirer
   ])
   .then(function(inquirerResponse) {
     if (inquirerResponse.confirm) {
-      console.log("Here's your first question\n");
+      console.log("IT IS TIME TO CHOOSE\n");
 
       console.log(blanksAndSuccesses)
 
@@ -79,36 +79,27 @@ inquirer
     		},
 		])
 		.then(function(checkForLetter) {
-			var letterInWord = false;
 
-    		for(var i = 0; i < numBlanks; i++){
-        
-        		if(chosenWord[i] === letter){
-            	letterInWord = true;
+			if (this.letterInput === blanksAndSuccesses[i]) {
+				console.log("you checked it!")
+				//push the letter into blanksAndSuccesses
+				console.log(blanksAndSuccesses)
+				//call function for letter input again
+				
 
-        		}
-    		}
-
-    		if(letterInWord){
-        
-        		for(i = 0; i < numBlanks; i++){
-            
-            		if(chosenWord[i] === letter){
-            		blanksAndSuccesses[i] = letter;
-            		console.log(blanksAndSuccesses)
-            		}
-
-        		}
-    
-    		}
-
-    		else{
-        		numGuesses --;
-        	
-    		}
+			} else {
+				console.log("not in there")
+				console.log(blanksAndSuccesses)
+				//call function for letter input again
+				
+			}
 		});
     }
     else {
       console.log("\nOkay... I wasn't wanting to play with you anyways...\n");
     }
   });
+
+  if (blanksAndSuccesses === chosenWord) {
+  	console.log("YOU DID IT!!!!!")
+  }
