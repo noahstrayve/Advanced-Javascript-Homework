@@ -31,7 +31,7 @@ var wordList = ["bulls",
 "wizards",
 "raptors",
 "knicks",
-"nets"]
+"nets"];
 
 var chosenWord = "";
 var letterInChosenWord = [];
@@ -49,57 +49,62 @@ for(var i = 0; i < numBlanks; i++){
 
 inquirer
   .prompt([
-    // Here we create a basic text prompt.
     {
       type: "input",
       message: "Would you like to play a game of Hangman?",
-      name: "username"
+      name: "playGame"
     },
     {
       type: "confirm",
       message: "Are you sure:",
-      name: "confirm",
+      name: "confirmGuess",
       default: true
     },
 
   ])
   .then(function(inquirerResponse) {
-    if (inquirerResponse.confirm) {
+    if (inquirerResponse.confirmGuess) {
       console.log("IT IS TIME TO CHOOSE\n");
+//DELETE DELETE
+      console.log("ONLY DOING THIS FOR TESTING PURPOSES DELTE THIS CODE LATER")
+      console.log(chosenWord)
+//DELETE DELETE
 
       console.log(blanksAndSuccesses)
-
+//guess();
       inquirer
   		.prompt([
-    		// Here we create a basic text prompt.
     		{
       			type: "input",
       			message: "Guess a letter!",
       			name: "letterInput"
     		},
 		])
-		.then(function(checkForLetter) {
-
-			if (this.letterInput === blanksAndSuccesses[i]) {
+			if (this === lettersInChosenWord) {
 				console.log("you checked it!")
+				console.log("it's in there")
+				for (var i = 0; i < lettersInChosenWord.length; i++) {
+					lettersInChosenWord[i].push()
+				}
 				//push the letter into blanksAndSuccesses
 				console.log(blanksAndSuccesses)
-				//call function for letter input again
-				
-
+				//call function to begin letter input sequence again
 			} else {
+				console.log("you checked it!")
 				console.log("not in there")
 				console.log(blanksAndSuccesses)
-				//call function for letter input again
-				
+				//call function to begin letter input sequence again		
 			}
-		});
+
     }
     else {
       console.log("\nOkay... I wasn't wanting to play with you anyways...\n");
     }
   });
 
-  if (blanksAndSuccesses === chosenWord) {
+  
+
+
+  if (blanksAndSuccesses === lettersInChosenWord) {
   	console.log("YOU DID IT!!!!!")
   }
